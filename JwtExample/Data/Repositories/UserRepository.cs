@@ -12,9 +12,9 @@ namespace JwtExample.Domain.Repositories
         {
             var users = new List<User>();
             users.Add(
-                new User { Id = 1, Username = "batman", Password = "batman", Role = UserRole.Manager.GetDescriptionString()});
+                new User { Id = 1, Username = "manager", Password = "manager", Role = UserRole.Manager.GetDescriptionString()});
             users.Add(
-                new User { Id = 2, Username = "robin", Password = "robin", Role = UserRole.Employee.GetDescriptionString()});
+                new User { Id = 2, Username = "employee", Password = "employee", Role = UserRole.Employee.GetDescriptionString()});
             return users.Where(x => x.Username.ToLower() == username.ToLower() && x.Password == x.Password).FirstOrDefault();
         }
     }

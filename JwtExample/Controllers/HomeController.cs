@@ -15,9 +15,8 @@ namespace JwtExample.Controllers
             _tokenService = tokenService;
         }
 
-        [HttpPost]
-        [Route("login")]
-        public ActionResult<dynamic> Authenticate(string username, string password)
+        [HttpPost("GenerateToken")]
+        public ActionResult<dynamic> GenerateToken(string username, string password)
         {
             var user = UserRepository.Get(username, password);
 
@@ -26,7 +25,7 @@ namespace JwtExample.Controllers
 
             var token = _tokenService.GenerateToken(user);
 
-            return Ok(token);
+            return Ok("Bearer " + token);
         }
     }
 }
